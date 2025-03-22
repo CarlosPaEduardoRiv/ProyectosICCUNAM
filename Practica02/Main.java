@@ -1,11 +1,11 @@
-public class Reloj{
+public class Main{
 
   private int segundos;
   private int minutos;
   private int horas;
   
 
-  public Reloj(int segundos, int minutos, int horas){
+  public Main(int segundos, int minutos, int horas){
 
   this.minutos = minutos;
   this.horas = horas;
@@ -59,7 +59,7 @@ public class Reloj{
     }
   }
   public static void main(String[] args) {
-    Reloj reloj = new Reloj(50, 49, 13);
+    Main reloj = new Main(50, 49, 13);
     reloj.mostrarHora();
     
   }
