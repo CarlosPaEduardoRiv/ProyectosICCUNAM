@@ -37,6 +37,6 @@ public class Main {
         } catch (InterruptedException e) {
         e.printStackTrace();
       }
-    } while (relojDoWhile.getMinutos() < 1); 
+    } while (relojDoWhile.manecillaSegundos() < 60); 
   }
 }
