@@ -1,48 +1,42 @@
+package practica2;
+
 public class Main {
-
-  private int minutos;
-  private int horas;
-
-  public Main(int minutos, int horas) {
-      this.minutos = minutos;
-      this.horas = horas;
-  }
-
-  public void manecillaMinuto() {
-       minutos++;
-      if (minutos == 60) {
-          minutos = 0;
-          manecillaHora();
-      }
-    
-  }
-
-  public void manecillaHora() {
-      horas++;
-      if (horas == 24) {
-          horas = 0;
-      }
-  }
-
-  public void Manecillas() {
-      System.out.printf("%02d:%02d%n", horas, minutos);
-  }
-
-  public void mostrarHora() {
-      while (true) {
-          Manecillas();
-          manecillaMinuto();
-
+    public static void main(String[] args) {
+        
+        System.out.println("Simulacion con while: ");
+        Manecillas relojWhile = new Manecillas(55, 9, 11, 12);
+        int contador = 0;
+        while (contador < 60) { 
+          relojWhile.manecillaSegundo();
+          relojWhile.manecillas();
+          contador++;
           try {
-              Thread.sleep(60000); 
-          } catch (InterruptedException e) {
-              e.printStackTrace();
-          }
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
       }
-  }
-
-  public static void main(String[] args) {
-      Main reloj = new Main(25, 19);
-      reloj.mostrarHora();
+    }  
+        System.out.println("\nSimulacion con for: ");
+        Manecillas relojFor = new Manecillas(55, 9, 10, 12);
+        for (int i = 0; i < 60; i++) {
+          relojFor.manecillaSegundo();
+          relojFor.manecillas();
+          try {
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    } 
+        System.out.println("\nSimulacion con do-while: ");
+        Manecillas relojDoWhile = new Manecillas(28, 9, 10, 12);
+        do {
+          relojDoWhile.manecillaSegundo();
+          relojDoWhile.manecillas();
+          try {
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    } while (relojDoWhile.getMinutos() < 1); 
   }
 }
